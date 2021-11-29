@@ -1,0 +1,16 @@
+@use "functions";
+$video: (video);
+$image: (img figure picturei canvas);
+$audio: (audio);
+$media: functions.joinAll($video, $image, $audio);
+
+$basics: (html body div article button main footer header span aside details section);
+$menu: (menu nav);
+$list: (ol ul li);
+$form: (form);
+$table: (table tbody tfoot thead tr th td);
+$inputs: (input option select datalist output optgroup);
+$typography: (ruby mark time a abbr address blockquote caption cite code em i strong b h1 h2 h3 h4 h5 h6 figcaption p kbd acronym big small summary caption);
+$externals: (applet object iframe embed);
+$all: functions.joinAll($basics, $typography, $externals, $form, $inputs, $menu, $list, $media, $table);
+$allBlocks: functions.joinAll($basics, $menu, $image, figcaptions);

@@ -1,0 +1,65 @@
+@use "sass:map";
+@use "mixins";
+@use "variables";
+@use "functions";
+
+$space: variables.$spacing-scale;
+
+@include mixins.generate("#{variables.$width-name}0") {
+  width: map.get($space, '0');
+}
+
+
+@include mixins.generate("#{variables.$width-name}screen") {
+  width: 100vw;
+}
+
+@include mixins.generate("#{variables.$width-name}full") {
+  width: map.get($space, 'full');
+}
+
+@include mixins.generate("#{variables.$width-name}half") {
+  width: map.get($space, 'half');
+}
+
+@include mixins.generate("#{variables.$width-name}min") {
+  width: map.get($space, 'min-content');
+}
+
+@include mixins.generate("#{variables.$width-name}max") {
+  width: map.get($space, 'max-content');
+}
+
+@for $i from 4 through 12 {
+  @include mixins.generate("#{variables.$width-name}#{$i}") {
+    width: map.get($space, '#{$i}');
+  }
+}
+
+$i: 14;
+@while $i <= 16 {
+  @include mixins.generate("#{variables.$width-name}#{$i}") {
+    width: map.get($space, '#{$i}');
+  }
+  $i: $i + 2;
+}
+
+$i: 20;
+@while $i <= 64 {
+  @include mixins.generate("#{variables.$width-name}#{$i}") {
+    width: map.get($space, '#{$i}');
+  }
+  $i: $i + 4;
+}
+
+$i: 72;
+@while $i <= 80 {
+  @include mixins.generate("#{variables.$width-name}#{$i}") {
+    width: map.get($space, '#{$i}');
+  }
+  $i: $i + 8;
+}
+
+@include mixins.generate("#{variables.$width-name}96") {
+  width: map.get($space, '96');
+}

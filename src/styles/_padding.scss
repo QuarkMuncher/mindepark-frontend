@@ -1,0 +1,170 @@
+@use "functions";
+@use "mixins";
+@use "variables";
+
+@include mixins.generateWithSides(#{variables.$padding-name}, '0') using ($type) {
+  $size: 0;
+
+  @if $type == base {
+    padding: $size;
+  } @else if $type == top {
+    padding-top: $size;
+  } @else if $type == right {
+    padding-right: $size;
+  } @else if $type == bottom {
+    padding-bottom: $size;
+  } @else if $type == left {
+    padding-left: $size;
+  }
+}
+
+@include mixins.generateWithSides(#{variables.$padding-name}, '#{0\.5}') using ($type) {
+  $size: 0.125rem;
+
+  @if $type == base {
+    padding: $size;
+  } @else if $type == top {
+    padding-top: $size;
+  } @else if $type == right {
+    padding-right: $size;
+  } @else if $type == bottom {
+    padding-bottom: $size;
+  } @else if $type == left {
+    padding-left: $size;
+  }
+}
+
+@include mixins.generateWithSides(#{variables.$padding-name}, '1') using ($type) {
+  $size: 0.250rem;
+
+  @if $type == base {
+    padding: $size;
+  } @else if $type == top {
+    padding-top: $size;
+  } @else if $type == right {
+    padding-right: $size;
+  } @else if $type == bottom {
+    padding-bottom: $size;
+  } @else if $type == left {
+    padding-left: $size;
+  }
+}
+
+@include mixins.generateWithSides(#{variables.$padding-name}, '#{1\.5}') using ($type) {
+  $size: 0.375rem;
+
+  @if $type == base {
+    padding: $size;
+  } @else if $type == top {
+    padding-top: $size;
+  } @else if $type == right {
+    padding-right: $size;
+  } @else if $type == bottom {
+    padding-bottom: $size;
+  } @else if $type == left {
+    padding-left: $size;
+  }
+}
+
+@include mixins.generateWithSides(#{variables.$padding-name}, '2') using ($type) {
+  $size: 0.500rem;
+
+  @if $type == base {
+    padding: $size;
+  } @else if $type == top {
+    padding-top: $size;
+  } @else if $type == right {
+    padding-right: $size;
+  } @else if $type == bottom {
+    padding-bottom: $size;
+  } @else if $type == left {
+    padding-left: $size;
+  }
+}
+
+@include mixins.generateWithSides(#{variables.$padding-name}, '#{2\.5}') using ($type) {
+  $size: 0.625rem;
+
+  @if $type == base {
+    padding: $size;
+  } @else if $type == top {
+    padding-top: $size;
+  } @else if $type == right {
+    padding-right: $size;
+  } @else if $type == bottom {
+    padding-bottom: $size;
+  } @else if $type == left {
+    padding-left: $size;
+  }
+}
+
+@include mixins.generateWithSides(#{variables.$padding-name}, '3') using ($type) {
+  $size: 0.750rem;
+
+  @if $type == base {
+    padding: $size;
+  } @else if $type == top {
+    padding-top: $size;
+  } @else if $type == right {
+    padding-right: $size;
+  } @else if $type == bottom {
+    padding-bottom: $size;
+  } @else if $type == left {
+    padding-left: $size;
+  }
+}
+
+@include mixins.generateWithSides(#{variables.$padding-name}, '#{3\.5}') using ($type) {
+  $size: 0.875rem;
+
+  @if $type == base {
+    padding: $size;
+  } @else if $type == top {
+    padding-top: $size;
+  } @else if $type == right {
+    padding-right: $size;
+  } @else if $type == bottom {
+    padding-bottom: $size;
+  } @else if $type == left {
+    padding-left: $size;
+  }
+}
+
+@for $i from 4 through 16 {
+  @include mixins.generateWithSides(#{variables.$padding-name}, '#{$i}') using ($type) {
+    $size: 0.250rem * $i;
+
+    @if $type == base {
+      padding: $size;
+    } @else if $type == top {
+      padding-top: $size;
+    } @else if $type == right {
+      padding-right: $size;
+    } @else if $type == bottom {
+      padding-bottom: $size;
+    } @else if $type == left {
+      padding-left: $size;
+    }
+  }
+}
+
+$i: 20;
+@while $i < 65 {
+
+  @include mixins.generate("p-#{$i}") {
+    padding: 0.250rem * $i;
+  }
+
+  $i: $i + 4;
+}
+
+$i: 72;
+@while $i < 97 {
+  
+  @include mixins.generate("p-#{$i}") {
+    padding: 0.250rem * $i;
+  }
+
+  $i: $i + 8;
+}
+

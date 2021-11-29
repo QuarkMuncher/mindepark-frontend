@@ -1,0 +1,63 @@
+@use "sass:map";
+@use "mixins";
+@use "variables";
+
+$space: variables.$spacing-scale;
+
+@include mixins.generate("#{variables.$height-name}0") {
+  height: map.get($space, '0');
+}
+
+@include mixins.generate("#{variables.$height-name}screen") {
+  height: 100vh;
+}
+
+@include mixins.generate("#{variables.$height-name}full") {
+  height: map.get($space, 'full');
+}
+
+@include mixins.generate("#{variables.$height-name}half") {
+  height: map.get($space, 'half');
+}
+
+@include mixins.generate("#{variables.$height-name}min") {
+  height: map.get($space, 'min-content');
+}
+
+@include mixins.generate("#{variables.$height-name}max") {
+  height: map.get($space, 'max-content');
+}
+
+@for $i from 4 through 12 {
+  @include mixins.generate("#{variables.$height-name}#{$i}") {
+    height: map.get($space, '#{$i}');
+  }
+}
+
+$i: 14;
+@while $i <= 16 {
+  @include mixins.generate("#{variables.$height-name}#{$i}") {
+    height: map.get($space, '#{$i}');
+  }
+  $i: $i + 2;
+}
+
+$i: 20;
+@while $i <= 64 {
+  @include mixins.generate("#{variables.$height-name}#{$i}") {
+    height: map.get($space, '#{$i}');
+  }
+  $i: $i + 4;
+}
+
+$i: 72;
+@while $i <= 80 {
+  @include mixins.generate("#{variables.$height-name}#{$i}") {
+    height: map.get($space, '#{$i}');
+  }
+  $i: $i + 8;
+}
+
+@include mixins.generate("#{variables.$height-name}96") {
+  height: map.get($space, '96');
+}

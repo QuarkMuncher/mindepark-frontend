@@ -1,0 +1,58 @@
+@use "sass:string";
+@use "sass:map";
+@use "variables";
+
+@function joinAll($lists...) {
+  $res: ();
+
+  @each $list in $lists {
+    $res: join($res, $list);
+  }
+
+  @return $res;
+}
+
+@function after($list) {
+  $res: ();
+
+  @each $element in $list {
+    $res: join($res, ("#{$element}:after"));
+  }
+
+  @return $res;
+}
+
+@function before($list) {
+  $res: ();
+
+  @each $element in $list {
+    $res: join($res, ("#{$element}:before"));
+  }
+
+  @return $res;
+}
+
+@function beforeAfter($list) {
+  $res: ();
+
+  @each $element in $list {
+    $res: join($res, join(before($element), after($element)));
+  }
+
+  @return $res;
+}
+
+@function breakpoints($selector) {
+  $selectors: ();
+  @each $key, $value in variables.$breakpoints {
+    $values: (value: $value, selector: ".#{$key}\\:#{$selector}");
+    $selectors: append($selectors, $values);
+  }
+
+  @return $selectors;
+}
+
+@function side($name, $direction) {
+  @return $name + map.get(variables.$directions, $direction) + '-';
+}
+

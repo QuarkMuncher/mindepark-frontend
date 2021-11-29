@@ -1,0 +1,30 @@
+@use "sass:map";
+@use "sass:list";
+@use "functions";
+@use "variables";
+
+@mixin generate($root-selector) {
+  .#{$root-selector} {
+    @content;
+  }
+  $breakpoints: functions.breakpoints($root-selector);
+  @each $value ,$selector in $breakpoints {
+    #{list.nth($selector, 2)} {
+      @media (min-width: list.nth($value, 2)) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin generateWithSides($start-selector, $end-selector) {
+  @include generate("#{$start-selector}#{$end-selector}") {
+    $type: base;
+    @content($type);
+  }
+  @each $key, $value in variables.$directions {
+    @include generate("#{functions.side($start-selector, $key)}#{$end-selector}") {
+      @content($key);
+    }
+  }
+}
